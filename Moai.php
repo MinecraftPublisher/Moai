@@ -91,9 +91,15 @@ new [NAME]      Creates a new Moai project
             sleep(5);
             echo "Or i'll just do it ;)
 ";
-            sleep(0.5);
+            sleep(1);
             Moai::createNew("Test Project");
-            echo "Too lazy? I've already done it for you!";
+            echo "Too lazy? I've already done it for you!
+";
+            sleep(2);
+            echo "Now all you need to do, Is to open the project folder, And test Moai out.
+Have fun!
+";
+            sleep(1);
         } else if ($cmd == "") {
             
         } else {
