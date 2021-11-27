@@ -17,16 +17,16 @@ class Moai {
 </head>
 <body>
 ";
-        include "www/landing.php";
+        include_once "www/landing.php";
     echo "
 </body>
 </html>";
     }
 
     static function throwError($err) {
-        
+
     }
-    
+
     static function LoadResources() {
         $script = new MoaiElement("script");
         $script -> setHTML("if(!window.location.href.split('?')[0].endsWith('/')) { window.location.href = window.location.href.split('?')[0] + \"/\" + (window.location.href.split('?')[1] ? \"?\" + window.location.href.split('?')[1] : \"\"); }");
@@ -78,7 +78,7 @@ new [NAME]      Creates a new Moai project
             echo "It's a cool PHP framework that lets you build flexible websites and projects with just a few clicks :)
 ";
             sleep(4);
-            echo "It gives you a really simple UI that you could either utilize to create a new Moai project, Or to include in your already existing project. No matter what, Moai is always useful!
+            echo "It gives you a really simple UI that you could either utilize to create a new Moai project, Or to include_once in your already existing project. No matter what, Moai is always useful!
 ";
             sleep(7);
             echo "You could also store elements and components and use them later, Or nest them inside each other, ";
@@ -101,7 +101,7 @@ Have fun!
 ";
             sleep(1);
         } else if ($cmd == "") {
-            
+
         } else {
             print $input . ": Command not found
 ";
@@ -165,7 +165,7 @@ Have fun!
      Do not edit this page
      */
 
-    include "moai/moai.php";
+    include_once "moai/moai.php";
     Moai::LoadResources();
     Moai::loadLanding(PUT_NAME);
     ?>
@@ -178,7 +178,7 @@ Have fun!
             file_put_contents($name . "/www/stylesheet.php", <<<'EOD'
                               <?php
                               /* Do not edit these lines */
-                              include '../moai/moai.php';
+                              include_once '../moai/moai.php';
                               Moai::MimeType('text/css');
                               $stylesheet = new MoaiStyleSheet();
 
@@ -213,7 +213,7 @@ Have fun!
             file_put_contents($name . "/www/landing.php", <<<'EOD'
                               <?php
                               /* Do not edit these lines */
-                              include '../moai/moai.php';
+                              include_once '../moai/moai.php';
                               /* Edit the following lines */
                               $h1 = new MoaiElement("h1");
                               $h1 -> setHTML("Moai landing");
@@ -332,7 +332,7 @@ class MoaiStyleSheet {
                 array_push($this->elements, $element);
             }
         } else {
-            
+
         }
     }
 
@@ -372,6 +372,6 @@ Type in 'help' to see available commands, Or use 'tutorial' to get an overview o
 ";
     Moai::terminal();
 } else {
-    
+
 }
 ?>
